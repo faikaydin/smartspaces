@@ -218,6 +218,8 @@ southwest_df = pd.DataFrame.from_records(southwest_records, columns=['cluster', 
                                                       'minute', 'wk_ago', 'day_ago', 'target'])
 
 records_df = pd.concat([east_df, west_df, northwest_df, southwest_df])
+records_df = records_df[records_df.day.isin([0,1,2,3,4])]
+records_df = records_df[records_df.hour.isin([10,11,12,13,14,15,16])]
 records_df = records_df.reset_index().drop('index', axis=1)
 records_df.to_csv('data/records_for_the_network.csv')
 # end

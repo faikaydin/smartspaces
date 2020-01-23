@@ -122,7 +122,7 @@ xa = clf.predict_proba(test_x)
 xa = [round(i[1], 3) for i in xa]
 test['prediction'] = xa
 results_Df = [sink_days(test[test.cluster == i]) for i in list(test.cluster.unique())]
-
+#############
 counter = 0
 for i in results_Df:
     i.to_csv('data/cluster' + str(counter) + 'prediction.csv')
