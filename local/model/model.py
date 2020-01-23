@@ -125,5 +125,7 @@ results_Df = [sink_days(test[test.cluster == i]) for i in list(test.cluster.uniq
 #############
 counter = 0
 for i in results_Df:
+    i.index = ['10AM', '11AM', '12PM', '1PM', '2PM', '3PM', '4PM']
+    i.columns = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']
     i.to_csv('data/cluster' + str(counter) + 'prediction.csv')
     counter +=1
